@@ -1,0 +1,33 @@
+FROM node:20 AS base
+
+# Instala tzdata y configura el timezone a UTC-5
+RUN apt-get update && apt-get install -y tzdata
+ENV TZ=America/Lima
+RUN ln -sf /usr/share/zoneinfo/America/Lima /etc/localtime
+RUN echo "America/Lima" > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata
+
+WORKDIR /usr/src/index
+
+COPY package*.json ./
+
+RUN npm ci
+
+FROM base AS build
+COPY . .
+RUN npx prisma generate
+RUN npm run build
+RUN mkdir -p ./dist/templates && cp -r ./src/templates/*.html ./dist/templates/
+RUN mkdir -p ./dist/public && cp -r ./public/**/* ./dist/public/
+
+FROM base AS release
+
+COPY --from=build /usr/src/index/node_modules ./node_modules
+COPY --from=build /usr/src/index/dist ./dist
+COPY --from=build /usr/src/index/prisma ./prisma
+COPY .env ./
+COPY start.sh ./
+RUN chmod +x ./start.sh
+EXPOSE 8080
+
+CMD ["./start.sh"]
