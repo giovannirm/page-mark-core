@@ -17,6 +17,15 @@ export default class WordsUtil {
 				"diecisiete",
 				"dieciocho",
 				"diecinueve",
+				"veintiuno",
+				"veintidós",
+				"veintitrés",
+				"veinticuatro",
+				"veinticinco",
+				"veintiséis",
+				"veintisiete",
+				"veintiocho",
+				"veintinueve",
 			],
 			hundreds: [
 				"",
@@ -31,55 +40,22 @@ export default class WordsUtil {
 				"novecientos",
 			],
 			connector: " y ",
-			singularThousand: "mil",
-			pluralThousand: "mil",
-			singularMillion: "un millón",
-			pluralMillion: "millones",
-		},
-		[LANGUAGE.ENGLISH]: {
-			zero: "zero",
-			units: ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"],
-			tens: ["", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"],
-			special: [
-				"ten",
-				"eleven",
-				"twelve",
-				"thirteen",
-				"fourteen",
-				"fifteen",
-				"sixteen",
-				"seventeen",
-				"eighteen",
-				"nineteen",
-			],
-			hundreds: [
-				"",
-				"one hundred",
-				"two hundred",
-				"three hundred",
-				"four hundred",
-				"five hundred",
-				"six hundred",
-				"seven hundred",
-				"eight hundred",
-				"nine hundred",
-			],
-			connector: " and ",
-			singularThousand: "thousand",
-			pluralThousand: "thousand",
-			singularMillion: "one million",
-			pluralMillion: "million",
-		},
+			thousand: "mil",
+			million: {
+				singular: "un millón",
+				plural: "millones",
+			}
+		}
 	};
 
 	static numberToWords(num: number, language: LANGUAGE = LANGUAGE.SPANISH): string {
-		if (num === NUM.ZERO) return WordsUtil.languages[language].zero;
-
 		const config = WordsUtil.languages[language];
+
+		if (num === NUM.ZERO) return config.zero;
 
 		function translateTens(num: number): string {
 			if (num < NUM.TEN) return config.units[num];
-			if (num >= NUM.TEN && num < NUM.TWENTY) return config.special[num - NUM.TEN];
+			if (num >= NUM.TEN && num < NUM.TWENTY) return config.[num - NUM.TEN];
 			const d = Math.floor(num / NUM.TEN);
 			const rest = num % NUM.TEN;
 

@@ -57,7 +57,7 @@ export async function initializeServer() {
 		logger.info(`Listening on https://localhost:${port}${API_PATH}`);
 		logger.info(`=============================================`);
 		logger.debug(`Server is running on port [${port}]`);
-		logger.debug(`CORS:\n${JSON.stringify(CORS_OPTIONS, null, NUM.TWO)}`);
+		logger.debug(`CORS: %o`, CORS_OPTIONS);
 		logger.info(`=============================================`);
 	});
 }
