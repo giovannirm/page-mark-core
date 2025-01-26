@@ -249,7 +249,3 @@ export enum SUPPORTED_MEDIA_TYPE {
 export enum MESSAGE_ERROR {
 	INVALID_REQUEST_PARAMETERS = "Invalid request parameters",
 }
-
-export enum LANGUAGE {
-	SPANISH = "es",
-}

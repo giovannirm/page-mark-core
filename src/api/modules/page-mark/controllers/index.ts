@@ -8,7 +8,7 @@ import { PDFDocument, rgb } from "pdf-lib";
 import fs from "fs";
 import responseHandler from "../../../../common/middlewares/responseHandler";
 import util from "util";
-import WordsUtil from "../../../../common/utils/wordsUtil-";
+import WordsUtil from "../../../../common/utils/words/util";
 
 @injectable()
 export default class PageMarkController {
