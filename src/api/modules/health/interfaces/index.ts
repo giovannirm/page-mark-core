@@ -1,15 +1,13 @@
-import { health } from "@prisma/client";
+import { HealthGeneralRepository, HealthGeneralService } from './model';
+import { IHealthCreateRequest } from './create';
+import { HealthShowMapper, HealthShowRepository } from './show';
 
 export interface IHealthService {
-	create(userId: string, data: CreateHealthRequest): Promise<health | null>;
-	show(id: number): Promise<health | null>;
+    create(request: IHealthCreateRequest): Promise<HealthGeneralService>;
+    show(id: number): Promise<HealthShowMapper>;
 }
 
 export interface IHealthRepository {
-	create(data: CreateHealthRequest): Promise<health | null>;
-	show(id: number): Promise<health | null>;
-}
-
-export interface CreateHealthRequest {
-	create_date_manual: string;
+    create(data: IHealthCreateRequest): Promise<HealthGeneralRepository>;
+    show(id: number): Promise<HealthShowRepository | null>;
 }

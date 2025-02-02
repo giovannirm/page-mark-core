@@ -1,5 +1,6 @@
-export interface IPageMarkService {
-	paginate(userId: string, data: any): Promise<any | null>;
-}
+import { PDFDocument } from 'pdf-lib';
+import { IPageMarkPaginateRequest } from './paginate';
 
-export interface IPageMarkRepository {}
+export interface IPageMarkService {
+    paginate(document: PDFDocument, request: IPageMarkPaginateRequest): Promise<Uint8Array<ArrayBufferLike>>;
+}

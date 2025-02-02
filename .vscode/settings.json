@@ -1,0 +1,84 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#ff0000", // Rojo intenso cuando está activa
+        "activityBar.background": "#000000", // Fondo negro para la barra de actividades
+        "activityBar.foreground": "#ffffff", // Íconos en blanco
+        "activityBar.inactiveForeground": "#ffffff99", // Íconos inactivos en blanco translúcido
+        "activityBarBadge.background": "#ff0000", // Badges en rojo
+        "activityBarBadge.foreground": "#ffffff", // Texto de los badges en blanco
+        "commandCenter.border": "#ff0000", // Borde rojo para el Command Center
+        "sash.hoverBorder": "#ff0000", // Borde rojo al pasar el mouse
+        "statusBar.background": "#000000", // Barra de estado en negro
+        "statusBar.foreground": "#ffffff", // Texto blanco en la barra de estado
+        "statusBarItem.hoverBackground": "#ff0000", // Rojo al pasar el mouse sobre los ítems
+        "statusBarItem.remoteBackground": "#000000", // Fondo negro para entornos remotos
+        "statusBarItem.remoteForeground": "#ff0000", // Texto rojo en entornos remotos
+        "titleBar.activeBackground": "#000000", // Barra de título negra cuando está activa
+        "titleBar.activeForeground": "#ffffff", // Texto blanco en la barra de título activa
+        "titleBar.inactiveBackground": "#000000", // Barra de título negra cuando está inactiva
+        "titleBar.inactiveForeground": "#ffffff99" // Texto blanco translúcido cuando está inactiva
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "tag",
+        "foreground": "#ffffff", // Texto blanco para las etiquetas por defecto
+        "background": "#ff0000", // Fondo rojo para las etiquetas
+        "opacity": 100,
+        "iconColour": "#ffffff" // Íconos en blanco
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "foreground": "#ffffff", // Texto blanco para TODO
+            "background": "#660000", // Fondo rojo oscuro
+            "opacity": 100,
+            "iconColour": "#ff0000", // Ícono rojo
+            "gutterIcon": true
+        },
+        "FIXME": {
+            "icon": "flame",
+            "foreground": "#ffffff", // Texto blanco para FIXME
+            "background": "#990000", // Rojo más brillante para errores
+            "iconColour": "#ff0000", // Ícono rojo de flama
+            "gutterIcon": true
+        },
+        "DONE": {
+            "icon": "verified",
+            "foreground": "#ffffff", // Texto blanco para tareas completadas
+            "background": "#003300", // Verde oscuro muy sutil para indicar completado
+            "iconColor": "#ffffff",
+            "gutterIcon": true
+        },
+        "TIPS": {
+            "foreground": "#ffffff", // Texto blanco para consejos
+            "background": "#333333" // Fondo gris oscuro
+        },
+        "BUG": {
+            "icon": "bug",
+            "type": "text",
+            "iconColour": "#ff0000", // Ícono rojo para bugs
+            "foreground": "#ffffff", // Texto blanco para bugs
+            "background": "#4d0000", // Fondo rojo oscuro para bugs
+            "gutterIcon": true
+        }
+    },
+    "todo-tree.filtering.ignoreGitSubmodules": true,
+    "todo-tree.filtering.excludeGlobs": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/coverage/**",
+        "**/.vscode/**",
+        "**/.git/**",
+        "**/.github/**",
+        "**/logs/**",
+        "**/tmp/**",
+        "**/bower_components/**",
+        "**/*.min.js",
+        "**/*.map",
+        "**/.DS_Store"
+    ],
+    "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "DONE", "TIPS"],
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.general.tagGroups": {}
+}
